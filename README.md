@@ -1,165 +1,200 @@
 ![Kubuverse Architecture](kubuverse-arch.png)
 
+# 🌌 KubuVerse
 
-# KubuVerse
+> *“Where ideas scale and compute becomes culture.”*
 
-## The AI-powered Multi-language Blockchain Webapp Dev Environment
-
-KubuVerse unites the best of AI, blockchain, and multi-language development into a seamless, powerful platform. Build smarter, faster, and decentralized — no compromises.
-
----
-
-### Features
-
-- **AI-Assisted Development:** Code suggestions, auto-completion, and intelligent automation powered by cutting-edge AI.  
-- **Multi-language Support:** Python, JavaScript, Rust, Dart, and more — all in one dev environment.  
-- **Blockchain Integration:** Native support for smart contracts, decentralized apps, and blockchain transactions.  
-- **Open Source & Community Driven:** Collaborate, contribute, and innovate alongside a growing ecosystem.
-
----
-![Build](https://img.shields.io/github/actions/workflow/status/Web4application/kubuverse/ci-cd.yaml?branch=main&label=build)
-![Docker](https://img.shields.io/badge/docker-ready-blue)
-![License](https://img.shields.io/github/license/Web4application/kubuverse)
-![Version](https://img.shields.io/github/v/tag/Web4application/kubuverse)
-![Architecture](https://img.shields.io/badge/arch-multi--arch-brightgreen)
-
-
-# 🌐 Kubuverse
-
-**Kubuverse** is a scalable, AI-powered, multi-architecture application platform built with FastAPI, PostgreSQL, Docker, and GitHub Actions. It’s designed for modern deployments, secure supply chains, and extensible microservices.
-
-> “Where ideas scale and compute becomes culture.”
-
----
-## 📸 System Diagram
-
-Here's an overview of the Kubuverse architecture:
-
-![Kubuverse Architecture](./docs/kubuverse-arch.png)
+KubuVerse is an open-source, AI-native, decentralized development ecosystem built on Web4/Web5 ideals. It merges intelligent tooling, multilingual support, blockchain integration, and cloud-native infrastructure to power scalable, secure, and collaborative applications.
 
 ---
 
-## 🏗 Tech Breakdown
+## ⚡ Features
 
-- **Backend**: FastAPI (async Python)
-- **Database**: PostgreSQL
-- **Cache/Queue**: Redis (optional)
-- **Containerization**: Docker + GHCR
-- **CI/CD**: GitHub Actions
-- **Signing**: Cosign
-- **Deployment**: Kubernetes-native
+- **🧠 AI Integration**
+  - Smart code suggestions and workflow automation
+  - Intelligent CI/CD and container orchestration
 
----
+- **🛠️ Multilingual Modules**
+  - Python (FastAPI Backend)
+  - Rust (Smart Contracts)
+  - Dart or JS (Frontend)
+  - Shell/JSON/YAML for DevOps
 
-## 📦 GHCR Image
+- **🔗 Blockchain Ready**
+  - Smart contract engine
+  - Wallet and token modules
+  - Rust-based WASM contracts
 
-docker pull    
+- **📦 Kubernetes-Native**
+  - Helm charts for deployment
+  - Autoscaling and traffic management
+  - RBAC and secrets handling
 
-    ghcr.io/web4application/kubuverse:latest
-
-
-## 🚀 Features
-
-- ⚡️ **FastAPI backend** — blazing-fast Python web API framework
-- 🗃 **PostgreSQL** — production-grade relational DB with Alembic migrations
-- 🔁 **Redis** — caching and job queueing (optional)
-- 🐋 **Multi-Arch Docker Support** — supports `linux/amd64` and `linux/arm64`
-- 🔐 **Cosign signing** — secure container provenance using Sigstore
-- 🌍 **i18n-ready** — FastAPI Accept-Language detection & content negotiation
-- 🛠 **GitHub Actions CI/CD** — automated build, sign, and push to GHCR
-- 🌐 **Kubernetes-native** — full deployment manifests and Helm-ready
+- **🧪 Developer Experience**
+  - Docker Compose-powered local dev
+  - GitHub Actions CI/CD with Cosign container signing
+  - Internationalization via FastAPI Accept-Language detection
 
 ---
 
-## 🧰 Tech Stack
+## 🧱 Tech Stack
 
-| Layer      | Tech           |
-|------------|----------------|
-| Backend    | FastAPI, Pydantic |
-| Database   | PostgreSQL + Alembic |
-| Cache/Queue| Redis (optional) |
-| DevOps     | Docker, Buildx, Cosign |
-| CI/CD      | GitHub Actions |
-| Infra      | Kubernetes (with LoadBalancer) |
+| Layer          | Technology              |
+|----------------|-------------------------|
+| Backend        | Python, FastAPI, Pydantic |
+| Smart Contracts| Rust/WASM               |
+| Frontend       | Dart / JavaScript       |
+| Database       | PostgreSQL + Alembic    |
+| Caching        | Redis (optional)        |
+| DevOps         | Docker, Buildx, Cosign  |
+| CI/CD          | GitHub Actions          |
+| Deployment     | Kubernetes + Helm       |
 
 ---
 
-## 📦 Container Registry
+## 🧭 Architecture Overview
 
-Images are published to:
+```text
+          ┌───────────────────────┐
+          │     👨‍💻  User Interface    │
+          │  (Dart / JS Frontend) │
+          └─────────┬─────────────┘
+                    │
+        [HTTP/API Requests via FastAPI]
+                    │
+          ┌─────────▼────────────┐
+          │  🧠 Backend Service   │
+          │  (Python + FastAPI)  │
+          └────┬────────┬────────┘
+               │        │
+        ┌──────▼───┐  ┌─▼────────────┐
+        │Database  │  │ Smart Contract│
+        │PostgreSQL│  │ Engine (Rust) │
+        └──────────┘  └──────────────┘
+               │
+               │
+       ┌───────▼─────────┐
+       │🕸️ Blockchain Layer│
+       │Ethereum / WASM  │
+       └─────────────────┘
 
+          ┌────────────────────────┐
+          │     🔁 CI/CD System     │
+          │ GitHub Actions + Docker│
+          └────────┬───────────────┘
+                   │
+          ┌────────▼─────────────┐
+          │ 🚀 Deployment Layer   │
+          │ Kubernetes + Helm    │
+          └──────────────────────┘
 ```
 
-ghcr.io/web4application/kubuverse\:latest
-
-````
-
-Multi-arch support: ✅  
-Signed with Cosign: ✅
-
 ---
 
-## 🛠 Development Setup
+## 🚀 Getting Started
+
+### 🔧 Local Development
 
 ```bash
 git clone https://github.com/Web4application/kubuverse.git
 cd kubuverse
 docker-compose up --build
-````
-
-Local access: `http://localhost:8000`
-
----
-
-## 🛡 Production Deployment
-
-```bash
-kubectl apply -f deploy/kubuverse-deployment.yaml
 ```
 
-Image is automatically built, pushed, and signed by [`.github/workflows/ci-cd.yaml`](./.github/workflows/ci-cd.yaml).
+> Requires: Docker, Python 3.10+, Git
 
----
-
-## 🔐 Security & Signing
-
-Kubuverse uses **Cosign** to sign and verify container images.
-See: [`deploy/build_sign_push.sh`](./deploy/build_sign_push.sh)
+### 🔐 Secure Signing (Optional)
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/web4application/kubuverse:latest
+cosign sign ghcr.io/<your-org>/kubuverse:<tag>
 ```
 
 ---
 
-## 📚 Docs
+## 📘 API Documentation (FastAPI)
 
-* [API Reference](docs/api.md)
-* [Database Models](docs/models.md)
-* [I18N Routing Guide](docs/i18n.md)
+Access auto-generated documentation after launching:
 
----
+- Swagger UI: `http://localhost:8000/docs`
+- Redoc UI: `http://localhost:8000/redoc`
 
-## 🤝 Contributing
+### Key Endpoints
 
-1. Fork the repo
-2. Create your feature branch (`git checkout -b feat/my-feature`)
-3. Commit your changes
-4. Push and create a PR
-
-All contributions must pass formatting and type checks.
-
----
-
-## 📄 License
-
-MIT License © Web4Application
+| Method | Endpoint           | Description                         |
+|--------|--------------------|-------------------------------------|
+| `GET`  | `/users/{id}`      | Retrieve user info                  |
+| `POST` | `/users/`          | Create a user                       |
+| `POST` | `/auth/login`      | Authenticate user                   |
+| `GET`  | `/health`          | Health check                        |
+| `POST` | `/contracts/invoke`| Run smart contract logic            |
 
 ---
 
-## 🌌 Vision
+## 📂 Project Structure
 
-Kubuverse is not just an app — it's an **AI-native compute culture**.
-It’s what happens when DevOps, data, and distributed systems come together under one sovereign deployment.
+```
+kubuverse/
+│
+├── backend/         # FastAPI microservice
+│   ├── main.py
+│   ├── routes/
+│   ├── models/
+│   ├── services/
+│   └── i18n/
+│
+├── contracts/       # Smart contracts in Rust
+├── frontend/        # Dart / JS frontend
+├── charts/          # Helm deployment charts
+├── .github/         # CI/CD workflows
+└── docker-compose.yml
+```
+
+---
+
+## 🧪 Testing
+
+- Run local unit tests with `pytest`
+- Use Docker for isolated integration testing
+- Check GitHub Actions for continuous testing pipeline
+
+---
+
+## 🚢 Deployment Guide
+
+- **Local**: via Docker Compose
+- **Cloud**: deploy Helm charts to Kubernetes clusters on GCP/AWS/DigitalOcean
+- **Security**: enable Cosign signing + RBAC + secrets via Kubernetes
+
+---
+
+## 🤖 Contributor Handbook
+
+### Git Workflow
+
+```bash
+# Fork → Clone → Branch
+git checkout -b feature/my-feature
+git commit -m "Add: my feature"
+git push origin feature/my-feature
+```
+
+### Rules of Thumb
+- Write tests for new features
+- Follow PEP8 and Rustfmt conventions
+- Submit clear PR descriptions
+- Use conventional commits (e.g. `feat: add login flow`)
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE)
+
+---
+
+## 🌐 Community
+
+- 📧 Email: [web4application@gmail.com](mailto:web4application@gmail.com)
+- 🗣️ Discord: *Coming soon*
 
 ![Kubuverse Architecture](kubuverse-arch.png)
