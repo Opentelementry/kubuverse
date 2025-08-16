@@ -4,7 +4,6 @@ import unittest
 import warnings
 import importlib
 import contextlib
-
 from . import fixtures
 from importlib.metadata import (
     Distribution,
@@ -16,7 +15,6 @@ from importlib.metadata import (
     requires,
     version,
 )
-
 
 @contextlib.contextmanager
 def suppress_known_deprecation():
