@@ -26376,4 +26376,3 @@ ee.data.Profiler.Format.prototype.toString = function() {
 };
 ee.data.Profiler.Format.TEXT = new ee.data.Profiler.Format("text");
 ee.data.Profiler.Format.JSON = new ee.data.Profiler.Format("json");
-
