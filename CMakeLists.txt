@@ -55,29 +55,42 @@ apply_standard_settings(${BINARY_NAME})
 target_link_libraries(${BINARY_NAME} PRIVATE flutter)
 target_link_libraries(${BINARY_NAME} PRIVATE PkgConfig::GTK)
 add_dependencies(${BINARY_NAME} flutter_assemble)
-# Only the install-generated bundle's copy of the executable will launch
-# correctly, since the resources must in the right relative locations. To avoid
-# people trying to run the unbundled copy, put it in a subdirectory instead of
-# the default top-level location.
+
+# === Direct run setup ===
+# Put the binary directly in build/
 set_target_properties(${BINARY_NAME}
   PROPERTIES
-  RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/intermediates_do_not_run"
+  RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
 
-# Generated plugin build rules, which manage building the plugins and adding
-# them to the application.
+# Copy Flutter engine, ICU data, and assets after build
+add_custom_command(TARGET ${BINARY_NAME} POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          "${FLUTTER_LIBRARY}" "$<TARGET_FILE_DIR:${BINARY_NAME}>/libflutter_engine.so"
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          "${FLUTTER_ICU_DATA_FILE}" "$<TARGET_FILE_DIR:${BINARY_NAME}>/icudtl.dat"
+  COMMAND ${CMAKE_COMMAND} -E copy_directory
+          "${PROJECT_BUILD_DIR}/flutter_assets" "$<TARGET_FILE_DIR:${BINARY_NAME}>/flutter_assets"
+)
+
+# Generated plugin build rules
 include(flutter/generated_plugins.cmake)
 
+# === Run target ===
+add_custom_target(run
+  COMMAND ${CMAKE_COMMAND} -E env
+          ${BINARY_NAME}
+  DEPENDS ${BINARY_NAME}
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+  COMMENT "Running ${BINARY_NAME}..."
+)
 
-# === Installation ===
-# By default, "installing" just makes a relocatable bundle in the build
-# directory.
+# === Installation bundle (optional) ===
 set(BUILD_BUNDLE_DIR "${PROJECT_BINARY_DIR}/bundle")
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "${BUILD_BUNDLE_DIR}" CACHE PATH "..." FORCE)
 endif()
 
-# Start with a clean build bundle directory every time.
 install(CODE "
   file(REMOVE_RECURSE \"${BUILD_BUNDLE_DIR}/\")
   " COMPONENT Runtime)
@@ -100,8 +113,6 @@ if(PLUGIN_BUNDLED_LIBRARIES)
     COMPONENT Runtime)
 endif()
 
-# Fully re-copy the assets directory on each build to avoid having stale files
-# from a previous install.
 set(FLUTTER_ASSET_DIR_NAME "flutter_assets")
 install(CODE "
   file(REMOVE_RECURSE \"${INSTALL_BUNDLE_DATA_DIR}/${FLUTTER_ASSET_DIR_NAME}\")
@@ -109,7 +120,6 @@ install(CODE "
 install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
   DESTINATION "${INSTALL_BUNDLE_DATA_DIR}" COMPONENT Runtime)
 
-# Install the AOT library on non-Debug builds only.
 if(NOT CMAKE_BUILD_TYPE MATCHES "Debug")
   install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
     COMPONENT Runtime)
