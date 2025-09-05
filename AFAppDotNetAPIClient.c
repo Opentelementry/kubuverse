@@ -1,3 +1,4 @@
+
 // AFAppDotNetAPIClient.h
 //
 // Copyright (c) 2012 Mattt Thompson (http://mattt.me/)
@@ -24,7 +25,7 @@
 
 #import "AFJSONRequestOperation.h"
 
-static NSString * const kAFAppDotNetAPIBaseURLString = @"https://alpha-api.app.net/";
+static NSString * const kAFAppDotNetAPIBaseURLString = @"https://api.web4app.net/";
 
 @implementation AFAppDotNetAPIClient
 
