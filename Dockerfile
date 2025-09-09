@@ -72,3 +72,71 @@ WORKDIR /workspace
 # Default entrypoint → Make help
 # ──────────────────────────────
 CMD ["make", "-C", "/app", "help"]
+
+# =========================================================
+# Base Python stage
+# =========================================================
+FROM python:3.11-slim as python-build
+WORKDIR /app/python
+COPY python/requirements.txt .
+RUN pip install -r requirements.txt
+COPY python/ .
+
+# =========================================================
+# Base C++ stage
+# =========================================================
+FROM gcc:12 as cpp-build
+WORKDIR /app/cpp
+COPY cpp/ .
+RUN make
+
+# =========================================================
+# Base Ruby stage
+# =========================================================
+FROM ruby:3.2 as ruby-build
+WORKDIR /app/ruby
+COPY ruby/ .
+RUN bundle install
+
+# =========================================================
+# Windows (Flutter Runner) cross-build with MinGW
+# =========================================================
+FROM debian:bookworm as windows-build
+WORKDIR /app/windows
+
+# Install mingw and cmake for cross-compilation
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    cmake \
+    make \
+    mingw-w64 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy Flutter runner sources (CMakeLists.txt + sources)
+COPY windows/ .
+
+# Cross-compile runner.exe for Windows x86_64
+RUN cmake -B build -DCMAKE_SYSTEM_NAME=Windows \
+    -DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc \
+    -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ \
+    && cmake --build build --config Release
+
+# =========================================================
+# Final combined image
+# =========================================================
+FROM debian:bookworm-slim
+WORKDIR /app
+
+# Bring in built artifacts
+COPY --from=python-build /app/python /app/python
+COPY --from=cpp-build /app/cpp/bin /app/cpp/bin
+COPY --from=ruby-build /app/ruby /app/ruby
+COPY --from=windows-build /app/windows/build/runner.exe /app/windows/runner.exe
+
+# Tools (optional: only keep what’s needed at runtime)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-pip ruby-full \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD [ "bash" ]
+
+LABEL org.opencontainers.image.source="https://github.com/Web4application/kubuverse.git"
