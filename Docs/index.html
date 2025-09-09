@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KubuVerse — Full Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 60px auto 40px auto;
+      padding: 0 20px;
+      color: #222;
+      background: #f5f7fa;
+    }
+    h1, h2, h3 {
+      color: #111;
+    }
+    code {
+      background: #eee;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    a {
+      color: #0070f3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+    /* Sticky navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px;
+      z-index: 1000;
+    }
+    nav a {
+      margin-right: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    nav a:hover {
+      color: #0070f3;
+    }
+    #content {
+      margin-top: 40px;
+    }
+    /* Back to top button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #0070f3;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 1001;
+    }
+    #backToTop:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky Nav -->
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#features">Features</a>
+    <a href="#tech-stack">Tech Stack</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#getting-started">Getting Started</a>
+    <a href="#api-documentation-fastapi">API</a>
+    <a href="#project-structure">Structure</a>
+  </nav>
+
+  <!-- Content -->
+  <div id="content">Loading KubuVerse documentation...</div>
+
+  <div class="footer">
+    Built with ❤️ by <a href="https://github.com/Web4application">Web4application</a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop">⬆ Back to Top</button>
+
+  <!-- Load marked.js -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    async function loadMarkdown() {
+      const response = await fetch("full_readme.md");
+      const text = await response.text();
+      document.getElementById("content").innerHTML = marked.parse(text);
+    }
+    loadMarkdown();
+
+    // Back to top logic
+    const btn = document.getElementById("backToTop");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+    btn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
