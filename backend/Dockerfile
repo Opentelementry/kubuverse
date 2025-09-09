@@ -152,5 +152,5 @@ COPY --from=ruby-build /app/ruby /app/ruby
 
 CMD ["bash"]
 
-LABEL org.opencontainers.image.source="https://github.com/Web4application/kubu.git"
+LABEL org.opencontainers.image.source="https://github.com/Web4application/kubuverse.git"
 CMD ["bash"]

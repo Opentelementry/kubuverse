@@ -1,0 +1,23 @@
+# Testing
+pytest==8.0.2
+pytest-timeout==2.1.0
+pytest-memray==1.5.0; python_version < "3.13"
+pytest-socket==0.7.0
+pytest-cov==4.1.0
+coverage==7.4.1
+codecov==2.1.13
+
+# Linters / formatters / typing
+flake8==5.0.4
+black==23.3.0
+isort==5.11.4
+mypy==1.12.0
+
+# Packaging / release
+build==0.10.0
+wheel==0.42.0
+towncrier==23.6.0
+
+# Pyodide (experimental)
+pytest-pyodide==0.54.0
+pyodide-build==0.24.1

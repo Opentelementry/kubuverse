@@ -1,200 +1,37 @@
-![Kubuverse Architecture](kubuverse-arch.png)
+# 🌌 KubuVerse  
 
-# 🌌 KubuVerse
-
-> *“Where ideas scale and compute becomes culture.”*
-
-KubuVerse is an open-source, AI-native, decentralized development ecosystem built on Web4/Web5 ideals. It merges intelligent tooling, multilingual support, blockchain integration, and cloud-native infrastructure to power scalable, secure, and collaborative applications.
+KubuVerse is an **AI-native, blockchain-ready, cloud-first ecosystem** for building scalable and decentralized applications.  
+It blends **FastAPI, Rust/WASM, Dart/JS, PostgreSQL, and Kubernetes** into a developer-first stack.  
 
 ---
 
-## ⚡ Features
-
-- **🧠 AI Integration**
-  - Smart code suggestions and workflow automation
-  - Intelligent CI/CD and container orchestration
-
-- **🛠️ Multilingual Modules**
-  - Python (FastAPI Backend)
-  - Rust (Smart Contracts)
-  - Dart or JS (Frontend)
-  - Shell/JSON/YAML for DevOps
-
-- **🔗 Blockchain Ready**
-  - Smart contract engine
-  - Wallet and token modules
-  - Rust-based WASM contracts
-
-- **📦 Kubernetes-Native**
-  - Helm charts for deployment
-  - Autoscaling and traffic management
-  - RBAC and secrets handling
-
-- **🧪 Developer Experience**
-  - Docker Compose-powered local dev
-  - GitHub Actions CI/CD with Cosign container signing
-  - Internationalization via FastAPI Accept-Language detection
+## ⚡ Highlights
+- 🧠 AI-powered tooling and CI/CD automation  
+- 🔗 Blockchain smart contract engine (Rust/WASM)  
+- 📦 Kubernetes-native deployment (Helm, autoscaling, RBAC)  
+- 🛠️ Multilingual: Python, Rust, Dart/JS  
 
 ---
 
-## 🧱 Tech Stack
-
-| Layer          | Technology              |
-|----------------|-------------------------|
-| Backend        | Python, FastAPI, Pydantic |
-| Smart Contracts| Rust/WASM               |
-| Frontend       | Dart / JavaScript       |
-| Database       | PostgreSQL + Alembic    |
-| Caching        | Redis (optional)        |
-| DevOps         | Docker, Buildx, Cosign  |
-| CI/CD          | GitHub Actions          |
-| Deployment     | Kubernetes + Helm       |
+👉 **Read the full documentation & architecture overview here:**  
+[📖 Full KubuVerse README](Docs/full_readme.md)  
 
 ---
 
-## 🧭 Architecture Overview
-
-```text
-          ┌───────────────────────┐
-          │     👨‍💻  User Interface    │
-          │  (Dart / JS Frontend) │
-          └─────────┬─────────────┘
-                    │
-        [HTTP/API Requests via FastAPI]
-                    │
-          ┌─────────▼────────────┐
-          │  🧠 Backend Service   │
-          │  (Python + FastAPI)  │
-          └────┬────────┬────────┘
-               │        │
-        ┌──────▼───┐  ┌─▼────────────┐
-        │Database  │  │ Smart Contract│
-        │PostgreSQL│  │ Engine (Rust) │
-        └──────────┘  └──────────────┘
-               │
-               │
-       ┌───────▼─────────┐
-       │🕸️ Blockchain Layer│
-       │Ethereum / WASM  │
-       └─────────────────┘
-
-          ┌────────────────────────┐
-          │     🔁 CI/CD System     │
-          │ GitHub Actions + Docker│
-          └────────┬───────────────┘
-                   │
-          ┌────────▼─────────────┐
-          │ 🚀 Deployment Layer   │
-          │ Kubernetes + Helm    │
-          └──────────────────────┘
-```
-
----
-
-## 🚀 Getting Started
-
-### 🔧 Local Development
+## 🚀 Quickstart
 
 ```bash
 git clone https://github.com/Web4application/kubuverse.git
 cd kubuverse
 docker-compose up --build
-```
-
-> Requires: Docker, Python 3.10+, Git
-
-### 🔐 Secure Signing (Optional)
-
-```bash
-cosign sign ghcr.io/<your-org>/kubuverse:<tag>
-```
-
----
-
-## 📘 API Documentation (FastAPI)
-
-Access auto-generated documentation after launching:
-
-- Swagger UI: `http://localhost:8000/docs`
-- Redoc UI: `http://localhost:8000/redoc`
-
-### Key Endpoints
-
-| Method | Endpoint           | Description                         |
-|--------|--------------------|-------------------------------------|
-| `GET`  | `/users/{id}`      | Retrieve user info                  |
-| `POST` | `/users/`          | Create a user                       |
-| `POST` | `/auth/login`      | Authenticate user                   |
-| `GET`  | `/health`          | Health check                        |
-| `POST` | `/contracts/invoke`| Run smart contract logic            |
-
----
-
-## 📂 Project Structure
 
 ```
-kubuverse/
-│
-├── backend/         # FastAPI microservice
-│   ├── main.py
-│   ├── routes/
-│   ├── models/
-│   ├── services/
-│   └── i18n/
-│
-├── contracts/       # Smart contracts in Rust
-├── frontend/        # Dart / JS frontend
-├── charts/          # Helm deployment charts
-├── .github/         # CI/CD workflows
-└── docker-compose.yml
-```
+
+# 🌌 KubuVerse
+
+Welcome to **KubuVerse** – a decentralised universe for innovation, creativity, and collaboration.  
+
+👉 [Read the full project description](docs/full_readme.md)
 
 ---
-
-## 🧪 Testing
-
-- Run local unit tests with `pytest`
-- Use Docker for isolated integration testing
-- Check GitHub Actions for continuous testing pipeline
-
----
-
-## 🚢 Deployment Guide
-
-- **Local**: via Docker Compose
-- **Cloud**: deploy Helm charts to Kubernetes clusters on GCP/AWS/DigitalOcean
-- **Security**: enable Cosign signing + RBAC + secrets via Kubernetes
-
----
-
-## 🤖 Contributor Handbook
-
-### Git Workflow
-
-```bash
-# Fork → Clone → Branch
-git checkout -b feature/my-feature
-git commit -m "Add: my feature"
-git push origin feature/my-feature
-```
-
-### Rules of Thumb
-- Write tests for new features
-- Follow PEP8 and Rustfmt conventions
-- Submit clear PR descriptions
-- Use conventional commits (e.g. `feat: add login flow`)
-
----
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE)
-
----
-
-## 🌐 Community
-
-- 📧 Email: [web4application@gmail.com](mailto:web4application@gmail.com)
-- 🗣️ Discord: *Coming soon*
-
-![Kubuverse Architecture](kubuverse-arch.png)
+Built with passion by [Web4application](https://github.com/Web4application)

@@ -1,0 +1,67 @@
+# .github/workflows/ci.yml
+name: CI - KubuVerse
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: kubu
+          POSTGRES_PASSWORD: kubu
+          POSTGRES_DB: kubuverse
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U kubu"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Set up C++
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      - name: Install Node (for docs / redoc-cli)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install Python dev deps
+        run: make dev-install
+
+      - name: Install Ruby deps
+        run: make install-ruby
+
+      - name: Run Universe pipeline
+        run: make universe
