@@ -14,19 +14,19 @@ jobs:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Cache Node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v3
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v22
         with:
-          node-version: 18
+          node-version: 22
 
       - run: npm ci
       - run: npm run build
@@ -39,7 +39,7 @@ jobs:
     name: Build & Test Backend
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Cache pip packages
         uses: actions/cache@v3
@@ -48,7 +48,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/backend/requirements.txt') }}
           restore-keys: ${{ runner.os }}-pip-
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v3
         with:
           python-version: 3.11
 
