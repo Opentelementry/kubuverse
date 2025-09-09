@@ -1,8 +1,22 @@
 ![Kubuverse Architecture](kubuverse-arch.png)
 
-# 🌌 KubuVerse
+# 🌌 KubuVerse  
 
-> *“Where ideas scale and compute becomes culture.”*
+[![Build](https://img.shields.io/github/actions/workflow/status/Web4application/kubuverse/ci.yml?branch=main)](https://github.com/Web4application/kubuverse/actions)  
+[![License](https://img.shields.io/github/license/Web4application/kubuverse)](LICENSE)  
+![Issues](https://img.shields.io/github/issues/Web4application/kubuverse)  
+![Stars](https://img.shields.io/github/stars/Web4application/kubuverse)  
+![Docker](https://img.shields.io/badge/Docker-ready-blue)  
+![Kubernetes](https://img.shields.io/badge/Kubernetes-supported-blueviolet)  
+
+---
+
+## 🖼️ Visual Overview  
+
+<p align="center">
+  <img src="docs/kubuverse-architecture.png" alt="KubuVerse Architecture" width="600"/>
+</p>
+
 
 KubuVerse is an open-source, AI-native, decentralized development ecosystem built on Web4/Web5 ideals. It merges intelligent tooling, multilingual support, blockchain integration, and cloud-native infrastructure to power scalable, secure, and collaborative applications.
 
