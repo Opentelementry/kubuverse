@@ -47,3 +47,54 @@ $ docker build -t web4app/bizz:dev .
 
 # Run container
 $ docker run -p 8000:8000 --env-file .env web4app/bizz:dev
+
+services:
+  db:
+    image: postgres:15
+    container_name: items_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: items
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: ./backend
+    container_name: fastapi_backend
+    restart: always
+    environment:
+      DATABASE_URL: dbname=items user=postgres password=postgres host=db
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: nextjs_frontend
+    restart: always
+    environment:
+      NEXT_PUBLIC_API_URL: https://api.your-domain.com
+    depends_on:
+      - backend
+
+  caddy:
+    image: caddy:2
+    container_name: caddy_reverse_proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  db_data:
+  caddy_data:
+  caddy_config:
