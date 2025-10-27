@@ -44,4 +44,3 @@ class EditedSystemPages:
 def macro_EditedSystemPages(macro):
     """ Temporary glue code to use with moin current macro system """
     return EditedSystemPages(macro).renderInPage()
-
