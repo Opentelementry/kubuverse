@@ -2,7 +2,7 @@ package KubuHai::Authen::Digest_MD5;
 
 use strict;
 use warnings;
-use base qw(KubuHai::Authen::Perl);  # Inherit from the base class
+use base qw(kubuverse::Authen::Perl);  # Inherit from the base class
 use Digest::MD5 qw(md5_hex);
 
 # Method to start the client authentication
