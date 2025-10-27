@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_URL="https://yourdomain.com" # Replace with your deployed URL
+BASE_URL="https://kubuverse.dev" # Replace with your deployed URL
 
 URLS=(
   "$BASE_URL/001.html"
