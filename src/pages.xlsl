@@ -1,5 +1,5 @@
 
-class EditedSystemPages:
+class Pages:
 
     def __init__(self, macro):
         self.macro = macro
