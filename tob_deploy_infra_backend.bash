@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -86,4 +87,6 @@ export QUALIFIED_WEB_APP_ID=${WEB_APP_ID}-${TF_VAR_environment}
 cd learning/tour-of-beam/backend
 
 go run ./cmd/ci_cd/ci_cd.go
+
+
 
