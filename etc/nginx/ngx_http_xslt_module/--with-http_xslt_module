@@ -1,0 +1,5 @@
+location / {
+    xml_entities    /site/dtd/entities.dtd;
+    xslt_stylesheet /site/xslt/one.xslt param=value;
+    xslt_stylesheet /site/xslt/two.xslt;
+}
