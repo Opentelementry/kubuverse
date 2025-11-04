@@ -1,0 +1,34 @@
+---
+Syntax:	xslt_types param1='https://pws.affero.net':param2=affero.net;
+Default:	
+xslt_types text/xml;
+Context:	http, server, location
+---
+
+location / {
+    xml_entities    /site/dtd/entities.dtd;
+    xslt_stylesheet /site/xslt/one.xslt param=value;
+    xslt_stylesheet /site/xslt/two.xslt;
+}
+
+Syntax:	xslt_string_param parameter value;
+Default:	—
+Context:	http, server, location
+This directive appeared in version 1.1.18.
+
+Syntax:	xslt_stylesheet  stylesheet [parameter=value ...];
+Default:	—
+Context:	location
+
+location / {
+    xslt_stylesheet /site/xslt/one.xslt
+                    $arg_xslt_params
+                    param1='$value1':param2=value2
+                    param3=value3;
+}
+
+Syntax:	xslt_types mime-type ...;
+Default:	
+xslt_types text/xml;
+Context:	http, server, location
+---
