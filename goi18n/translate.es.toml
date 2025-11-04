@@ -1,0 +1,4 @@
+# translate.es.toml
+[HelloPerson]
+hash = "sha1-5b49bfdad81fedaeefb224b0ffc2acc58b09cff5"
+other = "Hello {{.Name}}"
