@@ -1,0 +1,4 @@
+Syntax:	xslt_string_param parameter value;
+Default:	—
+Context:	http, server, location
+This directive appeared in version 1.1.18.
