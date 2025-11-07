@@ -1,0 +1,3 @@
+   Package: python-qt4* python3-pyqt4*
+    Pin: origin www.fbriere.net
+    Pin-Priority: 995
