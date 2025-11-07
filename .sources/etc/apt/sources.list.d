@@ -1,0 +1,1 @@
+apt-get -y install curl lsb-release && (cd "$(mktemp -d)" && dpkg -i $(curl -# -f -w '%{filename_effective}' -O https://www.fbriere.net/debian/fbriere-archive-keyring.deb)) && (cd /etc/apt/sources.list.d && curl -# -f -O https://www.fbriere.net/debian/sources/$(lsb_release -cs)/fbriere_python-qt4.sources) && apt-get update
