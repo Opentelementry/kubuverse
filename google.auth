@@ -1,7 +1,7 @@
 google.auth package
 ===================
 
-.. automodule:: google.auth
+.. automodule :: google.auth
    :members:
    :inherited-members:
    :show-inheritance:
@@ -35,3 +35,6 @@ Submodules
    google.auth.impersonated_credentials
    google.auth.jwt
    google.auth._jwt_async
+
+   
+---
