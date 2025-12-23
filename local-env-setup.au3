@@ -49,7 +49,7 @@ if [ "$kernelname" = "Linux" ]; then
     pip3Exists=$?
     if [ $python3Exists -eq 0  -a $pip3Exists -eq 0 ]; then
         echo "Installing grpcio-tools mypy-protobuf"
-        pip3 install grpcio-tools mypy-protobuf
+        pip3 install  grpcio-tools mypy-protobuf
     else
         echo "Python3 and pip3 are required but failed to install. Install them manually and rerun the script."
         exit
