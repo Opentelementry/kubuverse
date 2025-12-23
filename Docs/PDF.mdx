@@ -1,6 +1,9 @@
-Creating a PDF
+---
+page: _site
+tittle: Creating a PDF
+Description: To produce PDF specifically an output file with a pdf extension
+---
 
-To produce a PDF, specify an output file with a .pdf extension:
 
 pandoc test.txt -o test.pdf
 By default, pandoc will use LaTeX to create the PDF, which requires that a LaTeX engine be installed (see --pdf-engine below). Alternatively, pandoc can use ConTeXt, roff ms, or HTML as an intermediate format. To do this, specify an output file with a .pdf extension, as before, but add the --pdf-engine option or -t context, -t html, or -t ms to the command line. The tool used to generate the PDF from the intermediate format may be specified using --pdf-engine.
