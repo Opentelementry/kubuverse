@@ -1,6 +1,6 @@
 package KubuHai::Authen::Perl;
 
-use strict;
+use strict; 
 use warnings;
 
 # Base class for KubuHai authentication mechanisms
