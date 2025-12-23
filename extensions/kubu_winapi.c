@@ -1,7 +1,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <windows.h>
-
+ 
 static PyObject* kv_get_overlapped_result(PyObject* self, PyObject* args) {
     PyObject* py_handle;
     int wait;
