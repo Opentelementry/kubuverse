@@ -2,7 +2,7 @@
 # vim: ft=bash
 # Build internet_identity.wasm inside docker. This outputs internet_identity.wasm.gz,
 # and / or archive.wasm.gz depending on the provided arguments in the top-level directory.
-
+ 
 set -euo pipefail
 
 # Make sure we always run from the root
@@ -133,4 +133,4 @@ fi
 for canister in "${CANISTERS[@]}"
 do
     build "$canister"
-done
+don
