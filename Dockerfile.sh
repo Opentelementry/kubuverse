@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-# Docker Engine for Linux installation script.
+# Docker Engine for Linux  installation script.
 #
 # This script is intended as a convenient way to configure docker's package
 # repositories and to install Docker Engine, This script is not recommended
