@@ -17,7 +17,7 @@ sub _secflags {
   shift;
   scalar grep { $secflags{$_} } @_;
 }
-
+ 
 sub mechanism { 'CRAM-MD5' }
 
 sub client_start {
