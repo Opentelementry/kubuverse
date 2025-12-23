@@ -1,6 +1,6 @@
 #!/bin/bash
 SOURCE=$1
-OUTPUT=$2
+OUTPUT=$2 
 
 if [[ -z "$SOURCE" ]]; then
   echo "Usage: $0 <source-code-dir> <output-name>"
