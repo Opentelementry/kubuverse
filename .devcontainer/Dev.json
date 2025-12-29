@@ -1,0 +1,10 @@
+{
+  "name": "KUBU Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "/usr/local/bin/pull_kubu.sh"
+}
