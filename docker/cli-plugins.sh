@@ -1,15 +1,3 @@
-sudo apt-get update
- sudo apt-get install docker-compose-plugin
- DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
- mkdir -p $DOCKER_CONFIG/cli-plugins
- curl -SL https://github.com/docker/compose/releases/download/v2.40.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
-sudo yum update
- sudo -y
-sudo apt-get update
- sudo apt-get install docker-compose-plugin
-sudo apt-get update
- sudo apt-get install docker-compose-plugin
-
 #!/bin/sh
 set -e
 # Docker Engine for Linux installation script.
@@ -759,4 +747,16 @@ docker build -t kubu-local .devcontainer/ | tee -a $LOGFILE
 docker run -d --name kubu-dev -v $(pwd):/workspace -p 8000:8000 kubu-local | tee -a $LOGFILE
 
 echo "KUBU container is up-to-date and running." | tee -a $LOGFILE
+
+ $ sudo apt-get update
+ $ sudo apt-get install docker-compose-plugin
+ DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+ $ mkdir -p $DOCKER_CONFIG/cli-plugins
+ $ curl -SL https://github.com/docker/compose/releases/download/v2.40.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+$ sudo yum update
+$ sudo -y
+$ sudo apt-get update
+ $ sudo apt-get install docker-compose-plugin
+$ sudo apt-get update
+$ sudo apt-get install docker-compose-plugin
 
