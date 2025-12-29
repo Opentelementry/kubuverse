@@ -1,5 +1,4 @@
-
-$ git clone git://github.com/lxc/lxcfs
+ git clone git://github.com/lxc/lxcfs
 cd lxcfs
 ./bootstrap.sh
 ./configure
