@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # vim: ft=bash
 # Build internet_identity.wasm inside docker. This outputs internet_identity.wasm.gz,
-# and / or archive.wasm.gz depending on the provided arguments in the top-level directory.
+#and / or archive.wasm.gz depending on the provided arguments in the top-level directory.
  
 set -euo pipefail
+
 
 # Make sure we always run from the root
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
