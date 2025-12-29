@@ -31,11 +31,11 @@ def get_default_docker_endpoint():
     if IS_WINDOWS_PLATFORM:
         if os.path.exists(r'\\.\pipe\docker_engine'):
             return DEFAULT_NPIPE
-        return f"tcp://{DEFAULT_HTTP_HOST}:2375"
+        return f"tcp://{DEFAULT_HTTP_HOST}:5000"
     else:
         if os.path.exists("/var/run/docker.sock"):
             return DEFAULT_UNIX_SOCKET
-        return f"tcp://{DEFAULT_HTTP_HOST}:2375"
+        return f"tcp://{DEFAULT_HTTP_HOST}:8001"
 
 DOCKER_ENDPOINT = get_default_docker_endpoint()
 
