@@ -2,7 +2,7 @@
 import 'dart:io';
 
 Future<void> main() async {
-  final server = await HttpServer.bind(InternetAddress.anyIPv4, 8080);
+  final server = await HttpServer.bind(InternetAddress.anyIPv4, 8000);
   print('Listening on localhost:${server.port}');
 
   await for (HttpRequest request in server) {
