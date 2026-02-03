@@ -314,3 +314,4 @@ The following example demonstrates how to use the :mod:`http.cookies` module.
    >>> print(C)
    Set-Cookie: number=7
    Set-Cookie: string=seven
+
