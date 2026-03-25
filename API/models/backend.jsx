@@ -1,6 +1,5 @@
 import { Configuration, OpenAIApi } from 'openai';
 import axios from 'axios';
-
 const configuration = new Configuration({
   apiKey: process.env.AIzaSyCHjfdo3w16ODd5yTVJD4o9pWmigOJEg,
 });
