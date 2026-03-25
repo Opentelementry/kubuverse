@@ -15,7 +15,7 @@ pytest-pyodide==0.54.0
 # ---------------------------
 # Build / Packaging
 # ---------------------------
-build==0.10.0
+build==1.4.1
 wheel==0.46.2
 towncrier==23.6.0
 
