@@ -1,5 +1,4 @@
-package KubuHai::Authen::Digest_MD5;
-
+package KubuHai::Authen::Digest_MD5
 use strict;
 use warnings;
 use base qw(kubuverse::Authen::Perl);  # Inherit from the base class
