@@ -1,5 +1,5 @@
 {
-  "name": "Kubu AI-Blockchain Dev Container",
+  "name": "Kubuverse AI Dev Container",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
