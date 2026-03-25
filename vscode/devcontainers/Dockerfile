@@ -1,7 +1,7 @@
 ARG VARIANT=3-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
-ENV PYTHONUNBUFFERED=1
+ENV PYTHONKUBUVERSE=1
 
 # Install Docker CLI for pulling and running containers
 RUN apt-get update && apt-get install -y docker.io jq curl \
