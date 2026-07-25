@@ -43,7 +43,7 @@ requests-mock==1.12.1
 requests-toolbelt==1.0.0
 rfc3986==2.0.0
 rich==13.9.4
-twine==5.1.1
+twine==6.2.0
 zipp==3.19.2
 numpy==1.19.2
 pandas==1.1.3
