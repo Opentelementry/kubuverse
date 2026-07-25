@@ -3,7 +3,7 @@
 # ---------------------------
 # Testing & Coverage
 # ---------------------------
-pytest==8.0.2
+pytest==8.4.2
 pytest-timeout==2.1.0
 pytest-memray==1.5.0;python_version<"3.13" and sys_platform!="win32" and implementation_name=="cpython"
 pytest-socket==0.7.0
