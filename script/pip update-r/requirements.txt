@@ -16,7 +16,7 @@ pytest-pyodide==0.54.0
 # ---------------------------
 build==1.4.1
 wheel==0.46.2
-towncrier==23.6.0
+towncrier==23.11.0
 
 # ---------------------------
 # Linting / Formatting / Type Checking
