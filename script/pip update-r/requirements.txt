@@ -9,7 +9,7 @@ pytest-socket==0.7.0
 pytest-cov==4.1.0
 coverage==7.4.1
 codecov==2.1.13
-pytest-pyodide==0.54.0
+pytest-pyodide==0.59.2
 
 # ---------------------------
 # Build / Packaging
