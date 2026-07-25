@@ -8,7 +8,7 @@ pytest-timeout==2.1.0
 pytest-memray==1.5.0;python_version<"3.13" and sys_platform!="win32" and implementation_name=="cpython"
 pytest-socket==0.7.0
 pytest-cov==4.1.0
-coverage==7.4.1
+coverage==7.15.2
 codecov==2.1.13
 pytest-pyodide==0.54.0
 
