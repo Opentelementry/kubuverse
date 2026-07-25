@@ -1,5 +1,5 @@
 # Use a slim image for smaller footprint
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 # Create a non-root user for security
 RUN addgroup --system appgroup && adduser --system --group appuser
